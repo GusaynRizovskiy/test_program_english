@@ -9,7 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+import json
 
 class Ui_work_part(object):
     def setupUi(self, work_part):
@@ -80,6 +80,17 @@ class Ui_work_part(object):
 
         self.retranslateUi(work_part)
         QtCore.QMetaObject.connectSlotsByName(work_part)
+
+        self.pushButton.clicked.connect(self.open_file)
+
+    def open_file(self):
+        with open("Test.json","r",encoding="utf-8-sig") as new_file:
+            self.data = json.load(new_file)
+            k = 0
+        self.label_question.setText(self.data["вопросы"]["Вопрос"])
+        self.rdb_1.setText(self.data["вопросы"]["Вариант ответа 1"])
+        self.rdb_2.setText(self.data["вопросы"]["Вариант ответа 2"])
+        self.rdb_3.setText(self.data["вопросы"]["Вариант ответа 3"])
 
     def retranslateUi(self, work_part):
         _translate = QtCore.QCoreApplication.translate
