@@ -9,9 +9,15 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-
+from work_information_part import Ui_work_part
+from main import process
 
 class Ui_login(object):
+    def work_part(self):
+        self.second_window = QtWidgets.QDialog()
+        ui = Ui_work_part()
+        ui.setupUi(self.second_window)
+        self.second_window.show()
     def setupUi(self, login):
         login.setObjectName("login")
         login.resize(703, 371)
@@ -71,6 +77,11 @@ class Ui_login(object):
 
         self.retranslateUi(login)
         QtCore.QMetaObject.connectSlotsByName(login)
+
+        self.pbt_enter.clicked.connect(self.action_enter)
+
+    def action_enter(self):
+        process(self,self.lineEdit_name.text(),self.lineEdit_surname.text(),login)
 
     def retranslateUi(self, login):
         _translate = QtCore.QCoreApplication.translate
