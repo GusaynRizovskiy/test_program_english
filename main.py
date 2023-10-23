@@ -49,6 +49,9 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
         if self.k == 20:
             self.pushButton.setText("Закончить")
         else:
+            self.rdb_1.show()
+            self.rdb_2.show()
+            self.rdb_3.show()
             self.pushButton.setText("Дальше")
             self.label_number_question.setText(self.data["вопросы"][self.k]["Номер вопроса"])
             self.label_question.setText(self.data["вопросы"][self.k]["Вопрос"])
@@ -61,24 +64,30 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
         if self.rdb_1.isChecked():
             if self.rdb_1.text() == self.data["вопросы"][self.k]["Правильный ответ"]:
                 self.label_right_unright.setText("Правильно")
+                self.label_right_unright.setStyleSheet("background-color: green;border: 1px solid black;")
                 self.q+=1
             else:
                 self.label_right_unright.setText("Неправильно")
                 self.label_expression.setText(self.data["вопросы"][self.k]["Правильный ответ"])
+                self.label_right_unright.setStyleSheet("background-color: red;border: 1px solid black;")
         elif self.rdb_2.isChecked():
             if self.rdb_2.text() == self.data["вопросы"][self.k]["Правильный ответ"]:
                 self.label_right_unright.setText("Правильно")
+                self.label_right_unright.setStyleSheet("background-color: green;border: 1px solid black;")
                 self.q += 1
             else:
                 self.label_right_unright.setText("Неправильно")
                 self.label_expression.setText(self.data["вопросы"][self.k]["Правильный ответ"])
+                self.label_right_unright.setStyleSheet("background-color: red;border: 1px solid black;")
         elif self.rdb_3.isChecked():
             if self.rdb_3.text() == self.data["вопросы"][self.k]["Правильный ответ"]:
                 self.label_right_unright.setText("Правильно")
+                self.label_right_unright.setStyleSheet("background-color: green;border: 1px solid black;")
                 self.q += 1
             else:
                 self.label_right_unright.setText("Неправильно")
                 self.label_expression.setText(self.data["вопросы"][self.k]["Правильный ответ"])
+                self.label_right_unright.setStyleSheet("background-color: red;border: 1px solid black;")
 
 
 

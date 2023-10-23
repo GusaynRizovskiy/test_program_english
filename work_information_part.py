@@ -33,7 +33,7 @@ class Ui_work_part(object):
         self.label_question.setText("")
         self.label_question.setObjectName("label_question")
         self.label_right_unright = QtWidgets.QLabel(work_part)
-        self.label_right_unright.setGeometry(QtCore.QRect(40, 380, 55, 16))
+        self.label_right_unright.setGeometry(QtCore.QRect(40, 380, 150, 30))
         self.label_right_unright.setText("")
         self.label_right_unright.setObjectName("label_right_unright")
         self.label_expression = QtWidgets.QLabel(work_part)
@@ -81,7 +81,12 @@ class Ui_work_part(object):
         self.rdb_3.setFont(QFont("Aesthetic", 14))
         self.label_question.setFont(QFont("Aesthetic", 14))
         self.label_number_question.setFont(QFont("Aesthetic", 14))
+        self.label_expression.setFont(QFont("Aesthetic", 14))
+        self.label_right_unright.setFont(QFont("Aesthetic", 14))
         self.retranslateUi(work_part)
+        self.rdb_1.hide()
+        self.rdb_2.hide()
+        self.rdb_3.hide()
         QtCore.QMetaObject.connectSlotsByName(work_part)
     def retranslateUi(self, work_part):
         _translate = QtCore.QCoreApplication.translate
