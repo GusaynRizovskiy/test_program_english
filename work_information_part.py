@@ -80,23 +80,6 @@ class Ui_work_part(object):
 
         self.retranslateUi(work_part)
         QtCore.QMetaObject.connectSlotsByName(work_part)
-
-        self.open_file()
-        self.pushButton.clicked.connect(self.next_questinon)
-
-    def open_file(self):
-        with open("Test.json","r",encoding="utf-8-sig") as new_file:
-            self.data = json.load(new_file)
-            self.k = 0
-
-    def next_questinon(self):
-        self.label_number_question.setText(self.data["вопросы"][self.k]["Номер вопроса"])
-        self.label_question.setText(self.data["вопросы"][self.k]["Вопрос"])
-        self.rdb_1.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
-        self.rdb_2.setText(self.data["вопросы"][self.k]["Вариант ответа 2"])
-        self.rdb_3.setText(self.data["вопросы"][self.k]["Вариант ответа 3"])
-        self.k+=1
-
     def retranslateUi(self, work_part):
         _translate = QtCore.QCoreApplication.translate
         work_part.setWindowTitle(_translate("work_part", "Dialog"))
