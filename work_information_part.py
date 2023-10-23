@@ -9,8 +9,7 @@
 
 
 from PyQt5 import QtCore, QtGui, QtWidgets
-import json
-
+from PyQt5.QtGui import *
 class Ui_work_part(object):
     def setupUi(self, work_part):
         work_part.setObjectName("work_part")
@@ -77,7 +76,11 @@ class Ui_work_part(object):
         self.rdb_3.setText("")
         self.rdb_3.setObjectName("rdb_3")
         self.verticalLayout.addWidget(self.rdb_3)
-
+        self.rdb_1.setFont(QFont("Aesthetic",14))
+        self.rdb_2.setFont(QFont("Aesthetic", 14))
+        self.rdb_3.setFont(QFont("Aesthetic", 14))
+        self.label_question.setFont(QFont("Aesthetic", 14))
+        self.label_number_question.setFont(QFont("Aesthetic", 14))
         self.retranslateUi(work_part)
         QtCore.QMetaObject.connectSlotsByName(work_part)
     def retranslateUi(self, work_part):
