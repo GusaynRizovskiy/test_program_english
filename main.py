@@ -15,7 +15,7 @@ class Form1(QtWidgets.QMainWindow, Ui_login):
         self.pbt_close_window.clicked.connect(self.close_form1)
     def open_form2(self):
         self.username = self.lineEdit_name.text()
-        self.surname = self.lineEdit_name.text()
+        self.surname = self.lineEdit_surname.text()
         if re.fullmatch(r'[а-яА-яa-zA-Z]+', self.username) and re.fullmatch(r'[а-яА-яa-zA-Z]+',self.surname):
             form1.close()
             self.form2 = Form2()
@@ -32,7 +32,6 @@ class Form1(QtWidgets.QMainWindow, Ui_login):
             mess_box.setStandardButtons(QMessageBox.Ok | QMessageBox.Cancel)
             mess_box.show()
             mess_box.exec_()
-            print("incorrect")
     def close_form1(self):
         self.close()
 
