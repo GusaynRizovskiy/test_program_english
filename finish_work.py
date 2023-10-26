@@ -15,6 +15,7 @@ class Ui_finish_part(object):
     def setupUi(self, finish_part):
         finish_part.setObjectName("finish_part")
         finish_part.resize(630, 429)
+        finish_part.setWindowTitle("Итоги")
         self.label = QtWidgets.QLabel(finish_part)
         self.label.setGeometry(QtCore.QRect(180, 30, 391, 91))
         font = QtGui.QFont()

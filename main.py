@@ -2,6 +2,7 @@ import sys
 from PyQt5 import QtWidgets, uic
 from lobin_information_part import Ui_login
 from work_information_part import Ui_work_part
+from finish_work import Ui_finish_part
 import re
 from PyQt5.QtWidgets import  QMessageBox
 import json
@@ -48,6 +49,8 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
     def next_questinon(self):
         if self.k == 20:
             self.pushButton.setText("Закончить")
+            self.form3 = Form3(self.q)
+            self.form3.show()
         else:
             self.rdb_1.show()
             self.rdb_2.show()
@@ -60,6 +63,8 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
             self.rdb_3.setText(self.data["вопросы"][self.k]["Вариант ответа 3"])
             self.show_answer()
             self.k+=1
+
+
     def show_answer(self):
         if self.rdb_1.isChecked():
             if self.rdb_1.text() == self.data["вопросы"][self.k]["Правильный ответ"]:
@@ -89,8 +94,13 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
                 self.label_expression.setText(self.data["вопросы"][self.k]["Правильный ответ"])
                 self.label_right_unright.setStyleSheet("background-color: red;border: 1px solid black;")
 
-
-
+class Form3(QtWidgets.QMainWindow,Ui_finish_part):
+    def __init__(self,q):
+        self.q = q
+        super().__init__()
+        self.setupUi(self)
+        print(self.q)
+        self.label_right_answer.setText(str(self.q))
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     form1 = Form1()

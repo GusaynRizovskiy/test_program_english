@@ -12,6 +12,7 @@ class Ui_login(object):
     def setupUi(self, login):
         login.setObjectName("login")
         login.resize(703, 371)
+        login.setWindowTitle("Аутентификация")
         self.label_autentification = QtWidgets.QLabel(login)
         self.label_autentification.setGeometry(QtCore.QRect(40, 10, 641, 71))
         font = QtGui.QFont()

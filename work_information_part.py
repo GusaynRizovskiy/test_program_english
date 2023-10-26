@@ -14,6 +14,7 @@ class Ui_work_part(object):
     def setupUi(self, work_part):
         work_part.setObjectName("work_part")
         work_part.resize(1122, 624)
+        work_part.setWindowTitle("Тест")
         self.label = QtWidgets.QLabel(work_part)
         self.label.setGeometry(QtCore.QRect(220, 10, 741, 61))
         font = QtGui.QFont()
