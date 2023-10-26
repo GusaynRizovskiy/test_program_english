@@ -70,8 +70,9 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
             self.rdb_1.setText(self.data["вопросы"][self.k]["Вариант ответа 1"])
             self.rdb_2.setText(self.data["вопросы"][self.k]["Вариант ответа 2"])
             self.rdb_3.setText(self.data["вопросы"][self.k]["Вариант ответа 3"])
-            self.show_answer()
-            self.k+=1
+            if self.rdb_1.isChecked() or self.rdb_2.isChecked() or self.rdb_3.isChecked():
+                self.show_answer()
+                self.k+=1
 
 
     def show_answer(self):
@@ -108,7 +109,6 @@ class Form3(QtWidgets.QMainWindow,Ui_finish_part):
         self.q = q
         super().__init__()
         self.setupUi(self)
-        print(self.q)
         self.label_right_answer.setText(str(self.q))
         if q>18:
             self.label_mark.setText("5")
