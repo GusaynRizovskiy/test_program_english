@@ -17,6 +17,7 @@ class Form1(QtWidgets.QMainWindow, Ui_login):
         self.username = self.lineEdit_name.text()
         self.surname = self.lineEdit_name.text()
         if re.fullmatch(r'[а-яА-яa-zA-Z]+', self.username) and re.fullmatch(r'[а-яА-яa-zA-Z]+',self.surname):
+            form1.close()
             self.form2 = Form2()
             self.form2.show()
         else:
@@ -51,6 +52,7 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
             self.pushButton.setText("Закончить")
             self.form3 = Form3(self.q)
             self.form3.show()
+            form1.form2.close()
         else:
             self.rdb_1.show()
             self.rdb_2.show()
@@ -101,6 +103,18 @@ class Form3(QtWidgets.QMainWindow,Ui_finish_part):
         self.setupUi(self)
         print(self.q)
         self.label_right_answer.setText(str(self.q))
+        if q>18:
+            self.label_mark.setText("5")
+        elif q>15 and q<19:
+            self.label_mark.setText("4")
+        elif q>11 and q<16:
+            self.label_mark.setText("3")
+        else:
+            self.label_mark.setText("2")
+        self.pbt_finish.clicked.connect(self.function_close)
+        self.pbt_back.setEnabled(False)
+    def function_close(self):
+        self.close()
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     form1 = Form1()
