@@ -6,7 +6,7 @@ from finish_work import Ui_finish_part
 import re
 from PyQt5.QtWidgets import  QMessageBox
 import json
-
+from PyQt5.QtGui import QPalette, QBrush, QPixmap
 class Form1(QtWidgets.QMainWindow, Ui_login):
     def __init__(self):
         super().__init__()
@@ -19,6 +19,9 @@ class Form1(QtWidgets.QMainWindow, Ui_login):
         if re.fullmatch(r'[а-яА-яa-zA-Z]+', self.username) and re.fullmatch(r'[а-яА-яa-zA-Z]+',self.surname):
             form1.close()
             self.form2 = Form2()
+            palette = QPalette()
+            palette.setBrush(QPalette.Background, QBrush(QPixmap("./1614582859_27-p-belii-fon-sovremennii-31.jpg")))
+            self.form2.setPalette(palette)
             self.form2.show()
         else:
             mess_box = QMessageBox()
@@ -51,6 +54,10 @@ class Form2(QtWidgets.QMainWindow, Ui_work_part):
         if self.k == 20:
             self.pushButton.setText("Закончить")
             self.form3 = Form3(self.q)
+            palette = QPalette()
+            palette.setBrush(QPalette.Background,
+            QBrush(QPixmap("./1666346768_22-mykaleidoscope-ru-p-kipelno-belii-oboi-25.jpg")))
+            self.form3.setPalette(palette)
             self.form3.show()
             form1.form2.close()
         else:
@@ -118,5 +125,8 @@ class Form3(QtWidgets.QMainWindow,Ui_finish_part):
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     form1 = Form1()
+    palette = QPalette()
+    palette.setBrush(QPalette.Background, QBrush(QPixmap("./auth.jpg")))
+    form1.setPalette(palette)
     form1.show()
     sys.exit(app.exec_())
